@@ -1,7 +1,15 @@
 # --------------------
+# Terminals
+# --------------------
+alias nw='gnome-terminal --profile=blue'
+alias nwb='gnome-terminal --profile=blue'
+alias nwg='gnome-terminal --profile=green'
+alias nwy='gnome-terminal --profile=yellow'
+alias nwr='gnome-terminal --profile=red'
+
+# --------------------
 # Misc
 # --------------------
 alias srcc='. ~/.bashrc'
-alias nw='gnome-terminal'
 alias vi='vim'
 alias gvi='gvim'
