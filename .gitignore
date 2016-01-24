@@ -1,0 +1,15 @@
+.ICEauthority
+.Private
+.Xauthority
+.bash_*
+.cache/
+.compiz/
+.ecryptfs
+.gconf/
+.gnome2/
+.local
+.macromedia
+.mozilla
+.thunderbird
+.xsession*
+.viminfo

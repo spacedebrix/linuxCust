@@ -1,0 +1,7 @@
+# --------------------
+# Misc
+# --------------------
+alias srcc='. .bashrc'
+alias nw='gnome-terminal'
+alias vi='vim'
+alias gvi='gvim'
