@@ -58,16 +58,11 @@ parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
-PS1='\w\033[037m$(parse_git_branch)\033[0m> '
+WHITE='\033[037m'
+RED='\033[031m'
+NOCOLOR='\033[0m'
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+PS1="$RED\$$NOCOLOR\w$WHITE\$(parse_git_branch)$NOCOLOR> "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -109,5 +104,18 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Customization
+function cd
+{
+   if [ $# -eq 0 ]; then
+      DIR="${HOME}"
+   else
+      DIR="$1"
+   fi
+
+   builtin pushd "${DIR}" > /dev/null
+}
+alias b='pushd +1 > /dev/null'
 
 . ~/.alias

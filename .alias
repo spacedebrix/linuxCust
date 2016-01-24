@@ -8,6 +8,11 @@ alias nwy='gnome-terminal --profile=yellow'
 alias nwr='gnome-terminal --profile=red'
 
 # --------------------
+# Navigational
+# --------------------
+alias proj='cd /proj'
+
+# --------------------
 # Misc
 # --------------------
 alias srcc='. ~/.bashrc'
