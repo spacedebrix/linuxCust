@@ -1,0 +1,9 @@
+----------------------------------------
+SUBJECT: Basic python file reading
+
+INFO: 
+    with open( "filename", 'r' ) as file:
+        for line in file:
+            print( line )
+
+----------------------------------------

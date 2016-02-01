@@ -13,8 +13,14 @@ alias nwr='gnome-terminal --profile=red'
 alias proj='cd /proj'
 
 # --------------------
+# Tools
+# --------------------
+alias python='python3'
+
+# --------------------
 # Misc
 # --------------------
 alias srcc='. ~/.bashrc'
 alias vi='vim'
 alias gvi='gvim'
+alias sl='ls -r'

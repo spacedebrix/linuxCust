@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ $# < 1 ]]; then
+    echo "USAGE: $0 <help file>"
+    exit
+fi
+
+FILE=$1
+
+if [ -e $FILE ]; then
+    echo "File already exists"
+    exit
+fi
+
+echo "--------------------------------" > $FILE
+echo "SUBJECT:" >> $FILE
+echo "" >> $FILE
+echo "INFO:" >> $FILE
+echo "" >> $FILE
+echo "--------------------------------" >> $FILE
+
+PWD=`pwd`/
+FILEPATH=`echo ${PWD} | sed "s|${HLP_FILES_LOC}||"`
+
+echo "[]        $FILEPATH/$FILE" >> ~/bin/help/index
+
+vi $1 < `tty` > `tty`
+vi + $HLP_INDEX_LOC < `tty` > `tty`

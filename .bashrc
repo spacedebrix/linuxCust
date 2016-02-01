@@ -119,3 +119,12 @@ function cd
 alias b='pushd +1 > /dev/null'
 
 . ~/.alias
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Help system
+export HLP_LOC="$HOME/bin/help"
+export HLP_INDEX_LOC="$HOME/bin/help/index"
+export HLP_FILES_LOC="$HOME/bin/help/files/"
+
+export PATH="$PATH:$HOME/bin:$HOME/bin/help"
