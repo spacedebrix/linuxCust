@@ -54,39 +54,27 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-WHITE='\033[037m'
-RED='\033[031m'
-NOCOLOR='\033[0m'
-
-git_color() {
-    local git_status="$(git status 2> /dev/null)"
-
-    if [[ $git_status =~ "Your branch is ahead of" ]]; then
-        echo -e $RED
-    else
-        echo -e $WHITE
-    fi
-}
+COLOR_WHITE='\033[037m'
+COLOR_RED='\033[031m'
+COLOR_NOCOLOR='\033[0m'
 
 git_prompt() {
     local git_status="$(git status 2> /dev/null)"
 
     if [[ $git_status =~ "Your branch is ahead of" ]]; then
-        echo -ne $RED
+        local color=$COLOR_RED
     else
-        echo -ne $WHITE
+        local color=$COLOR_WHITE
     fi
 
     local branch=$(parse_git_branch)
-    if [[ $git_status =~ "modified:" ]]; then
-        branch=`echo $branch*`
+    if [[ $git_status =~ "modified:" || $git_status =~ "new file:" || $git_status =~ "deleted:" ]]; then
+        branch=$branch*
     fi
 
     if [[ $branch != "" ]]; then
-        echo -ne " "[$branch]
+        echo -ne " "$color[$branch]$COLOR_NOCOLOR
     fi
-
-    echo -ne $NOCOLOR
 }
 
 PS1="$RED\$$NOCOLOR\w\$(git_prompt)> "
