@@ -58,6 +58,10 @@ COLOR_WHITE='\033[037m'
 COLOR_RED='\033[031m'
 COLOR_NOCOLOR='\033[0m'
 
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
 git_prompt() {
     local git_status="$(git status 2> /dev/null)"
 
