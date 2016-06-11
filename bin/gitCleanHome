@@ -1,0 +1,5 @@
+CONFS=`find ~/.gconf/apps/gnome-terminal/profiles/ -name *gconf.xml`
+for f in $CONFS
+do
+    git checkout $f
+done
