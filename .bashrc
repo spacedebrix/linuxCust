@@ -56,6 +56,7 @@ fi
 
 COLOR_WHITE='\033[037m'
 COLOR_RED='\033[031m'
+COLOR_YELLOW='\033[1;033m'
 COLOR_NOCOLOR='\033[0m'
 
 parse_git_branch() {
@@ -81,7 +82,7 @@ git_prompt() {
     fi
 }
 
-PS1="$COLOR_RED\$$COLOR_NOCOLOR\w\$(git_prompt)> "
+PS1="$COLOR_YELLOW\$ $COLOR_NOCOLOR\w\$(git_prompt)> "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
