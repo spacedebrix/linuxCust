@@ -81,7 +81,7 @@ git_prompt() {
     fi
 }
 
-PS1="$RED\$$NOCOLOR\w\$(git_prompt)> "
+PS1="$COLOR_RED\$$COLOR_NOCOLOR\w\$(git_prompt)> "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
