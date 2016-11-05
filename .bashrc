@@ -82,7 +82,12 @@ git_prompt() {
     fi
 }
 
-PS1="$COLOR_YELLOW\$ $COLOR_NOCOLOR\w\$(git_prompt)> "
+prompt_path() {
+    echo `pwd` | awk -F '/' '{ if( length($0) > 38 ) { print ".../"$(NF-1)"/"$(NF) } else {print $0;} }' | sed "s|$HOME|~|"
+}
+
+#PS1="$COLOR_YELLOW\$ $COLOR_NOCOLOR\w\$(git_prompt)> "
+PS1="$COLOR_YELLOW\$ $COLOR_NOCOLOR\$(prompt_path)\$(git_prompt)> "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

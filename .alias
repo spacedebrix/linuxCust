@@ -16,6 +16,7 @@ alias proj='cd /proj'
 # Tools
 # --------------------
 alias python='python3'
+alias android='/opt/android-studio/bin/studio.sh'
 
 # --------------------
 # Misc
