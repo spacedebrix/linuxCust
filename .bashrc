@@ -73,7 +73,7 @@ git_prompt() {
     fi
 
     local branch=$(parse_git_branch)
-    if [[ $git_status =~ "modified:" || $git_status =~ "new file:" || $git_status =~ "deleted:" ]]; then
+    if [[ $git_status =~ "modified:" || $git_status =~ "new file:" || $git_status =~ "deleted:" || $git_status =~ "renamed" ]]; then
         branch=$branch*
     fi
 
@@ -148,8 +148,8 @@ alias b='pushd +1 > /dev/null'
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Help system
-export HLP_LOC="$HOME/bin/help"
-export HLP_INDEX_LOC="$HOME/bin/help/index"
-export HLP_FILES_LOC="$HOME/bin/help/files/"
+export HLP_LOC="$HOME/hlp/"
+export HLP_INDEX_LOC="$HOME/hlp/index"
+export HLP_FILES_LOC="$HOME/hlp/files/"
 
 export PATH="$PATH:$HOME/bin:$HOME/bin/help"
