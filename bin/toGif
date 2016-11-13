@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [[ $# -lt 1 ]]; then
+    echo USAGE: \<input\> [output]
+    exit 0
+fi
+
+IN_FILE=$1
+OUT_FILE=`echo $IN_FILE | sed 's/\.[^\.]*$/\.gif/'`
+
+if [[ $# -gt 1 ]]; then
+    OUT_FILE=$2
+fi
+
+echo "In: $IN_FILE"
+echo "Out: $OUT_FILE"
+
+AVCONV="avconv -i \"${IN_FILE}\" -filter:v \"setpts=2.5*PTS\" -pix_fmt rgb24 \"${OUT_FILE}\""
+echo "${AVCONV}"
+eval "${AVCONV}"
+
+CONVERT="convert -layers Optimize \"${OUT_FILE}\" \"${OUT_FILE}\""
+echo "${CONVERT}"
+eval "${CONVERT}"
