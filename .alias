@@ -25,3 +25,66 @@ alias srcc='. ~/.bashrc'
 alias vi='vim'
 alias gvi='gvim'
 alias sl='ls -r'
+
+# --------------------
+# Functions: Creational
+# --------------------
+
+
+function newPython()
+{
+    _setwf $1
+
+    _wf "/usr/bin/python"
+    _wf
+    _wf "import sys"
+    _wf
+    _wf "# -----------------------"
+    _wf "# Functions"
+    _wf "# -----------------------"
+    _wf
+    _wf "# -----------------------"
+    _wf "# Main"
+    _wf "# -----------------------"
+    _wf "# -----------------------"
+    _wf "def printUsage( progName ):"
+    _wf "   print( \"USAGE: \" + progName)"
+    _wf
+    _wf "# -----------------------"
+    _wf "def runMain( args ):"
+    _wf "    None"
+    _wf
+    _wf "# -----------------------"
+    _wf "if __name__ == '__main__':"
+    _wf "   runMain( sys.argv )"
+
+    _unsetwf
+}
+
+# ----------------------
+# Functions: Private
+# ----------------------
+function _setwf()
+{
+    # Set internal file variable
+
+    export WF_FILE_TMP="$1"
+}
+
+function _unsetwf()
+{
+    # Unset internal file variable
+
+    unset WF_FILE_TMP
+}
+
+function _wf()
+{
+    # Simple helper to write to a file
+
+    if [[ $# -ne 0 ]]; then
+        echo "$1" >> ${WF_FILE_TMP}
+    else
+        echo "" >> ${WF_FILE_TMP}
+    fi
+}
