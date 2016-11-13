@@ -1,0 +1,7 @@
+--------------------------------
+SUBJECT: Add all non-ignored files to git
+
+INFO:
+    > git add .
+
+--------------------------------

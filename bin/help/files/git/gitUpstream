@@ -1,0 +1,7 @@
+--------------------------------
+SUBJECT: Set git remote upstream
+
+INFO:
+    > git push --set-upstream origin master
+
+--------------------------------
