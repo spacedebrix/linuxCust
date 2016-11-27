@@ -2,3 +2,5 @@
 
 [git push upstream remote]   git/gitUpstream
 [git add all]                git/gitAddAll
+
+[android remove title bar]   android/noTitleBar

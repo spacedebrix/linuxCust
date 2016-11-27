@@ -22,7 +22,7 @@ echo "--------------------------------" >> $FILE
 PWD=`pwd`/
 FILEPATH=`echo ${PWD} | sed "s|${HLP_FILES_LOC}||"`
 
-echo "[]        ${FILEPATH}${FILE}" >> ~/bin/help/index
+echo "[]        ${FILEPATH}${FILE}" >> $HLP_INDEX_LOC
 
 vi $1 < `tty` > `tty`
 vi + $HLP_INDEX_LOC < `tty` > `tty`
