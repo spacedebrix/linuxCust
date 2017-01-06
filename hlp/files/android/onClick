@@ -1,0 +1,55 @@
+--------------------------------
+SUBJECT: Getting onClick to work
+
+INFO:
+   This is in relation to getting onClick to work with the whole layout,
+   a RelativeLayout in this case.
+
+   What SHOULD work is simply adding this in the activity's XML for
+   the layout (or whatever):
+
+      android:onClick="myOnClickMethod"
+
+   Then the method should look like:
+
+      public void myOnClickMethod(View view) {
+         // Who cares about view
+      }
+
+
+   ------------------
+   If for some reason that isn't working, REBUILD the entire project.  I
+   messed around for 20 minutes last time before trying that and that's
+   all it took.
+
+   If for some reason that's not working, some other things to try:
+
+   - Add clickable to activity XML (I have no idea why this isn't required
+     to begin with):
+   
+        android:clickable="true"
+
+
+   - Add listener programatically:
+
+        RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.activity_encourage);
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goBack(view);
+            }
+        });
+
+   - Turn activity into listener:
+
+        public class Encourage extends AppCompatActivity implements View.OnClickListener {
+           ...
+           @Override
+           public void onClick(View view ) {}
+           ...
+        }
+
+   Experiment with adding the XML clickable to any of these options.
+
+--------------------------------

@@ -4,3 +4,4 @@
 [git add all]                git/gitAddAll
 
 [android remove title bar]   android/noTitleBar
+[android onclick clickable]  android/onClick
