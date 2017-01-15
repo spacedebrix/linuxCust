@@ -28,6 +28,15 @@ alias sl='ls -r'
 alias gitFixHome='gitCleanHome'
 
 # --------------------
+# Fixers
+# --------------------
+function fixTouchpad()
+{
+    sudo modprobe -r psmouse
+    sudo modprobe psmouse proto=imps
+}
+
+# --------------------
 # Functions: Creational
 # --------------------
 
